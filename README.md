@@ -47,10 +47,11 @@
 > 코드 설계하며 점점 추가할 예정
 
 
-
-## DB 모델링
-![File Block Extensions (3)](https://user-images.githubusercontent.com/102216495/210051198-7570c126-4112-433a-9da3-4e8115f8a160.png)
+## API 설계서
+![image](https://user-images.githubusercontent.com/102216495/210053512-91b8e4cd-df75-4978-8111-988cde211f44.png)
 
 <br>
 
-## API 설계서
+
+## DB 모델링
+![File Block Extensions (5)](https://user-images.githubusercontent.com/102216495/210053437-40b8a06d-e48c-41b2-a8d1-39629b9adf25.png)
