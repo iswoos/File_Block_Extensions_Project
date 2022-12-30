@@ -18,6 +18,7 @@ public class CustomResponseDto {
 
         public CustomRegisterResponseDto(CustomExtension customExtension) {
             this.customExtensionName = customExtension.getCustomExtensionName();
+            this.isDeleted = "N";
         }
     }
 }

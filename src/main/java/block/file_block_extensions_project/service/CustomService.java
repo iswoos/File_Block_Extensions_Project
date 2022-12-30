@@ -21,7 +21,6 @@ public class CustomService {
     public CustomResponseDto.CustomRegisterResponseDto customRegister(CustomRequestDto.CustomRegisterRequestDto customRegisterRequestDto) {
         CustomExtension customExtension = new CustomExtension(customRegisterRequestDto);
         customRepository.save(customExtension);
-
         return new CustomResponseDto.CustomRegisterResponseDto(customExtension);
     }
 }
