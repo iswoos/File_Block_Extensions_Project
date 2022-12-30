@@ -45,3 +45,12 @@
 ### 3. 이외 고려해야할 사항
 
 > 코드 설계하며 점점 추가할 예정
+
+
+
+## DB 모델링
+![File Block Extensions (3)](https://user-images.githubusercontent.com/102216495/210051198-7570c126-4112-433a-9da3-4e8115f8a160.png)
+
+<br>
+
+## API 설계서
