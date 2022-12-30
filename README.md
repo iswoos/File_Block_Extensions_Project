@@ -47,7 +47,7 @@
 > 코드 설계하며 점점 추가할 예정
 
 ## API 설계서
-![image](https://user-images.githubusercontent.com/102216495/210053938-7be9e5e8-7e7f-40b0-890f-1230093e9527.png)
+![image](https://user-images.githubusercontent.com/102216495/210056677-02afcf94-788c-4642-80a8-87d57580633e.png)
 
 <br>
 
