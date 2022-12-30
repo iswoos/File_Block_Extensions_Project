@@ -16,6 +16,9 @@
 <br>
 
 ## 요구사항
+
+![image](https://user-images.githubusercontent.com/102216495/210049184-33949b13-ff5a-4207-b6a8-434e5d984f30.png)
+
 ### 1. 고정 확장자 관련
 
 > 1.1 고정 확장자의 default는 unCheck 되어져 있어야 한다.
