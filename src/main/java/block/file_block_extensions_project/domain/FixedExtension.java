@@ -21,4 +21,14 @@ public class FixedExtension {
 
     @Column(name = "fixed_checked")
     private String isChecked = "N";
+
+
+    public void changeChekced() {
+        if (this.isChecked == "N") {
+            this.isChecked = "Y";
+        }
+        if (this.isChecked == "Y") {
+            this.isChecked = "N";
+        }
+    }
 }

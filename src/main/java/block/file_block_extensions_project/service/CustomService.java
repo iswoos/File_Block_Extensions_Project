@@ -30,6 +30,7 @@ public class CustomService {
         CustomExtension customExtension = customRepository.findById(customId).orElseThrow(
                 () -> new CustomCommonException(ErrorCode.CUSTOM_ID_FOUND)
         );
+
         customRepository.delete(customExtension);
         return new CustomResponseDto.CustomRegisterResponseDto(customExtension);
     }

@@ -25,7 +25,7 @@ public class CustomController {
     }
 
     @DeleteMapping("/{customId}")
-    public ResponseDto<CustomResponseDto.CustomRegisterResponseDto> customDelete(@PathVariable Long customId) {
+    public ResponseDto<CustomResponseDto.CustomRegisterResponseDto> customDeleted(@PathVariable Long customId) {
         return ResponseDto.success(customService.customDeleted(customId));
     }
 

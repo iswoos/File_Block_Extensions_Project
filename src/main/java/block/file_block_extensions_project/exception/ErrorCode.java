@@ -15,7 +15,9 @@ public enum ErrorCode {
     // 403 FORBIDDEN 접근 실패
 
     // 404 NOT_FOUND 존재하지 않음
-    CUSTOM_ID_FOUND(404, HttpStatus.NOT_FOUND, "존재하지 않는 확장 추가자입니다."),
+    FIXED_ID_FOUND(404, HttpStatus.NOT_FOUND, "존재하지 않는 고정 확장자입니다."),
+
+    CUSTOM_ID_FOUND(404, HttpStatus.NOT_FOUND, "존재하지 않는 추가 확장자입니다."),
 
     //500 INTERNAL SERVER ERROR
     INTERNAL_SERVER_ERROR(500, HttpStatus.INTERNAL_SERVER_ERROR, "서버 에러입니다.");
