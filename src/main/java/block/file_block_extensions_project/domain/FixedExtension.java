@@ -25,6 +25,10 @@ public class FixedExtension {
     private String isChecked = "N";
 
 
+    public FixedExtension(String fixedExtensionName) {
+        this.fixedExtensionName = fixedExtensionName;;
+    }
+
     public void changeChekced() {
         log.info("업데이트 중");
         if (this.isChecked.equals("N")) {
