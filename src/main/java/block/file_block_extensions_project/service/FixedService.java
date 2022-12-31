@@ -24,7 +24,13 @@ public class FixedService {
                 () -> new CustomCommonException(ErrorCode.FIXED_ID_FOUND)
         );
 
+        log.info(fixedExtension.getFixedExtensionName());
+        log.info(fixedExtension.getIsChecked());
+        log.info(fixedExtension.getIsChecked().getClass().getName());
+
         fixedExtension.changeChekced();
+
+        log.info("업데이트 완료");
 
         return new FixedResponseDto.FixedCheckResponseDto(fixedExtension);
     }
