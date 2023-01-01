@@ -31,8 +31,8 @@ public class DbInit {
         fixedRepository.save(js);
     }
 
-    @PreDestroy
-    private void preDestroy(){
-        fixedRepository.deleteAll();
-    }
+//    @PreDestroy
+//    private void preDestroy(){
+//        fixedRepository.deleteAll();
+//    }
 }
