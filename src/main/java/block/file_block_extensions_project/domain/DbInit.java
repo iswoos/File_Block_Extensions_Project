@@ -3,10 +3,10 @@ package block.file_block_extensions_project.domain;
 
 import block.file_block_extensions_project.repository.FixedRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 @Component
 @RequiredArgsConstructor
@@ -31,4 +31,8 @@ public class DbInit {
         fixedRepository.save(js);
     }
 
+    @PreDestroy
+    private void preDestroy(){
+        fixedRepository.deleteAll();
+    }
 }
