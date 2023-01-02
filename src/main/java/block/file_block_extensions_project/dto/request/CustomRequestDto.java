@@ -17,5 +17,6 @@ public class CustomRequestDto {
         @Size(max = 20, message = "최대입력 길이는 20자입니다.")
         private String customExtensionName;
 
+
     }
 }

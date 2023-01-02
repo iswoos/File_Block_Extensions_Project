@@ -90,7 +90,12 @@
             const value =  $('#custom').val()
 
             if(value === ''){
-                return
+                return;
+            }
+
+            if (value.length > 20) {
+                alert('최대입력 길이는 20자입니다.');
+                return;
             }
 
             $.ajax({
@@ -178,7 +183,8 @@
             <tr>
                 <th style="width: 100px;">커스텀 확장자</th>
                 <td>
-                    <input type="text" name="custom" id="custom" placeholder="확장자 입력" value="" maxlength="20"> <input
+<!--                    <input type="text" name="custom" id="custom" placeholder="확장자 입력" value="" maxlength="20"> <input-->
+                    <input type="text" name="custom" id="custom" placeholder="확장자 입력" value="" > <input
                         type="button" class="btn btn-primary btn-xs" id="customBtn" onclick="onClickAddCustomExtension();"
                         value="+추가">
 

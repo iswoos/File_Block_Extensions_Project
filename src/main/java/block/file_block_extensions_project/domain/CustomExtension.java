@@ -20,7 +20,7 @@ public class CustomExtension extends BaseEntity {
     private Long id;
 
     @NotNull
-    @Column(name = "custom_name")
+    @Column(name = "custom_name", unique = true)
     private String customExtensionName;
 
     @NotNull
