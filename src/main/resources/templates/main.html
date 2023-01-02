@@ -91,11 +91,9 @@
         // <input type="checkbox" name="fileOpt" id=${fixedExtensionId}> ${fixedExtensionName}
 
         // 커스텀 확장자 추가실행 ENTER 미지원
-        document.addEventListener('keydown', function(event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-            };
-        }, true);
+        $(document).on('keypress', 'form', function (e) {
+            return e.keyCode != 13;
+        });
 
         // 커스텀 확장자 추가 및 예외적용
         function onClickAddCustomExtension () {
