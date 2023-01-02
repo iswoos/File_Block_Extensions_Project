@@ -7,6 +7,7 @@ import block.file_block_extensions_project.dto.response.CustomResponseDto;
 import block.file_block_extensions_project.exception.CustomCommonException;
 import block.file_block_extensions_project.exception.ErrorCode;
 import block.file_block_extensions_project.repository.CustomRepository;
+import block.file_block_extensions_project.repository.FixedRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,10 +21,16 @@ public class CustomService {
 
     private final CustomRepository customRepository;
 
+    private final FixedRepository fixedRepository;
+
     public Object customRegister(CustomRequestDto.CustomRegisterRequestDto customRegisterRequestDto) {
 
         if (customRepository.findByCustomExtensionName(customRegisterRequestDto.getCustomExtensionName()).isPresent()) {
             return new CustomCommonException(ErrorCode.EXIST_CUSTOM_NAME);
+        }
+
+        if (fixedRepository.findByFixedExtensionName(customRegisterRequestDto.getCustomExtensionName()).isPresent()) {
+            return new CustomCommonException(ErrorCode.EXIST_FIXED_NAME);
         }
 
         if (customRepository.count() > 200) {

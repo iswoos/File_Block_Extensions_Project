@@ -90,16 +90,27 @@
 
         // <input type="checkbox" name="fileOpt" id=${fixedExtensionId}> ${fixedExtensionName}
 
+        // 커스텀 확장자 추가실행 ENTER 미지원
+        document.addEventListener('keydown', function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+            };
+        }, true);
 
+        // 커스텀 확장자 추가 및 예외적용
         function onClickAddCustomExtension () {
             const value =  $('#custom').val()
-
             if(value === ''){
                 return;
             }
 
             if (value.length > 20) {
                 alert('최대입력 길이는 20자입니다.');
+                return;
+            }
+
+            if (value.search(/[a-z]/ig)) {
+                alert('영문자만 입력가능합니다.');
                 return;
             }
 
@@ -144,7 +155,7 @@
 
         }
 
-        // 추가확장자 삭제
+        // 커스텀 확장자 삭제
         function onClickRemoveCustom (event){
             if(event.target.className !== 'btnClear'){
                 return
@@ -170,23 +181,19 @@
         });
 
 
-        // 추가확장자 삭제 버튼클릭
+        // 커스텀 확장자 삭제 버튼클릭
         $(function () {
             $('#customExtension').click(onClickRemoveCustom)
         })
 
-        // // 추가확장자 개수 산출
-        // function customExtensionCount(){
-        //     let customExtensionCount = $('#customExtension').length;
-        //     countDiv.text(count);
-        // }
+
 
     </script>
 </head>
 
 <body>
 <div class="container">
-    <h1>◎파일 확장자 차단</h1>
+    <h2>◎파일 확장자 차단</h2>
     <span>파일확장자에 따라 특정 형식의 파일을 첨부하거나 전송하지 못하도록 제한</span>
     <form id="extensionForm">
         <table>
@@ -202,7 +209,7 @@
                 <td>
 <!--                    <input type="text" name="custom" id="custom" placeholder="확장자 입력" value="" maxlength="20"> <input-->
                     <input type="text" name="custom" id="custom" placeholder="확장자 입력" value="" > <input
-                        type="button" class="btn btn-primary btn-xs" id="customBtn" onclick="onClickAddCustomExtension();"
+                        type="button" class="btn btn-success" id="customBtn" onclick="onClickAddCustomExtension();"
                         value="+추가">
 
 
@@ -219,22 +226,7 @@
             </tbody>
         </table>
     </form>
-    <div>
-        <h2>파일확장자 테스트</h2>
-        <form action="/file/upload" method="POST" enctype="multipart/form-data">
-            <div>
-                <input type="file" name="fileInput">
-                <button class="btn btn-primary" style="margin-top: 20px;" type="submit">제출하기</button>
-            </div>
-        </form>
-        <div>
-            <h3>True값이면 사용가능한 전송 or 업로드 가능한 파일</h3>
-            <p id="extensionResult">
-
-            </p>
-        </div>
-
-    </div>
 </div>
+
 </body>
 </html>
