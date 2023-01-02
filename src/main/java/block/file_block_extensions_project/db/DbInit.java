@@ -1,6 +1,7 @@
-package block.file_block_extensions_project.domain;
+package block.file_block_extensions_project.db;
 
 
+import block.file_block_extensions_project.domain.FixedExtension;
 import block.file_block_extensions_project.repository.FixedRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

@@ -26,6 +26,10 @@ public class CustomService {
             return new CustomCommonException(ErrorCode.EXIST_CUSTOM_NAME);
         }
 
+        if (customRepository.count() > 200) {
+            return new CustomCommonException(ErrorCode.OVER_CUSTOM_COUNT);
+        }
+
         CustomExtension customExtension = new CustomExtension(customRegisterRequestDto);
         customRepository.save(customExtension);
         return new CustomResponseDto.CustomRegisterResponseDto(customExtension);

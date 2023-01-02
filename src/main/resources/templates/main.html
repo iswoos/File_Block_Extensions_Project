@@ -17,8 +17,6 @@
             loadMain();
         });
 
-
-
         function loadMain() {
             $.ajax({
                 type: "GET",
@@ -56,6 +54,14 @@
                     }
 
                     // 추가확장자 리스트
+
+                    let customExtensionCount = customExtensions.length;
+
+                    let tmpExtensionCount = `
+                        <div style="margin: 3px 3px 0px 3px"><span id="customCount">${customExtensionCount}</span>/200</div>
+                    `
+                    $('#customExtension').append(tmpExtensionCount)
+
                     for (let i = 0; i < customExtensions.length; i++) {
                         let extension = customExtensions[i];
 
@@ -63,7 +69,6 @@
                         let customExtensionId = extension.id;
 
                         console.log(customExtensionName);
-
 
                         let tmpExtension = `
                         <div style="display: inline-flex;
@@ -126,7 +131,7 @@
                 return
             }
 
-            /*체크박스 체크여부 확인하고 체크했을때는 Y값(고정확장자 사용) update 아닐땐N값(사용안함)) 업데이트를 수행*/
+            //체크박스 체크여부 확인 후, 체크했을때 Y값(고정확장자 사용) update 아닐 땐N값(사용안함)) update
             $.ajax({
                 type: "PATCH",
                 url: `/extensions/check/${event.target.id}`,
@@ -139,7 +144,7 @@
 
         }
 
-
+        // 추가확장자 삭제
         function onClickRemoveCustom (event){
             if(event.target.className !== 'btnClear'){
                 return
@@ -159,17 +164,22 @@
 
         }
 
-        // 고정 확장자 체크 유무
+        // 고정확장자 체크 유무
         $(function () {
             $('#fixedExtension').click(onClickCheckbox)
         });
 
 
-        // 커스텀 확장자 삭제 버
+        // 추가확장자 삭제 버튼클릭
         $(function () {
             $('#customExtension').click(onClickRemoveCustom)
         })
 
+        // // 추가확장자 개수 산출
+        // function customExtensionCount(){
+        //     let customExtensionCount = $('#customExtension').length;
+        //     countDiv.text(count);
+        // }
 
     </script>
 </head>
@@ -202,6 +212,7 @@
                 <th style="width: 100px;"></th>
 
                 <td id="customExtension" style="border: 1px solid black; border-radius: 15px; padding: 16px; min-width: 300px; min-height: 300px;">
+<!--                    <div style="margin: 3px 3px 0px 3px"><span id="customCount">${customCount}</span>/200</div>-->
                     <!---->
                 </td>
             </tr>

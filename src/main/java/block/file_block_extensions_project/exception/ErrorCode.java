@@ -11,6 +11,7 @@ public enum ErrorCode {
     // 400 BAD_REQUEST 잘못된 요청
     EXIST_CUSTOM_NAME(400, HttpStatus.BAD_REQUEST, "이미 존재하는 추가 확장자 이름입니다."),
 
+    OVER_CUSTOM_COUNT(400, HttpStatus.BAD_REQUEST, "추가 확장자 등록 개수 200개를 초과하였습니다."),
 
     // 401 UNAUTHORIZED 권한 없음
 
