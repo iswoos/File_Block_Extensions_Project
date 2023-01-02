@@ -2,7 +2,6 @@ package block.file_block_extensions_project.service;
 
 import block.file_block_extensions_project.domain.CustomExtension;
 import block.file_block_extensions_project.domain.FixedExtension;
-import block.file_block_extensions_project.dto.common.ResponseDto;
 import block.file_block_extensions_project.dto.response.MainResponseDto;
 import block.file_block_extensions_project.repository.CustomRepository;
 import block.file_block_extensions_project.repository.FixedRepository;

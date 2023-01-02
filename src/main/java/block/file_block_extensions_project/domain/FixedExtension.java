@@ -33,9 +33,7 @@ public class FixedExtension extends BaseEntity {
     }
 
     public void changeChekced() {
-        log.info("업데이트 중");
         if (this.isChecked.equals("N")) {
-            log.info("N 스트링이 맞다!");
             this.isChecked = "Y";
         } else {
             this.isChecked = "N";

@@ -13,7 +13,6 @@ public class FixedResponseDto {
     public static class FixedCheckResponseDto {
 
         private String fixedExtensionName;
-
         private String isChecked;
 
         public FixedCheckResponseDto(FixedExtension fixedExtension) {

@@ -1,9 +1,8 @@
 package block.file_block_extensions_project.service;
 
 import block.file_block_extensions_project.domain.CustomExtension;
-import block.file_block_extensions_project.dto.common.ResponseDto;
-import block.file_block_extensions_project.dto.request.CustomRequestDto;
-import block.file_block_extensions_project.dto.response.CustomResponseDto;
+import block.file_block_extensions_project.dto.request.CustomRequestDto.CustomRegisterRequestDto;
+import block.file_block_extensions_project.dto.response.CustomResponseDto.CustomRegisterResponseDto;
 import block.file_block_extensions_project.exception.CustomCommonException;
 import block.file_block_extensions_project.exception.ErrorCode;
 import block.file_block_extensions_project.repository.CustomRepository;
@@ -23,7 +22,7 @@ public class CustomService {
 
     private final FixedRepository fixedRepository;
 
-    public Object customRegister(CustomRequestDto.CustomRegisterRequestDto customRegisterRequestDto) {
+    public Object customRegister(CustomRegisterRequestDto customRegisterRequestDto) {
 
         if (customRepository.findByCustomExtensionName(customRegisterRequestDto.getCustomExtensionName()).isPresent()) {
             return new CustomCommonException(ErrorCode.EXIST_CUSTOM_NAME);
@@ -39,15 +38,15 @@ public class CustomService {
 
         CustomExtension customExtension = new CustomExtension(customRegisterRequestDto);
         customRepository.save(customExtension);
-        return new CustomResponseDto.CustomRegisterResponseDto(customExtension);
+        return new CustomRegisterResponseDto(customExtension);
     }
 
-    public CustomResponseDto.CustomRegisterResponseDto customDeleted(Long customId) {
+    public CustomRegisterResponseDto customDeleted(Long customId) {
         CustomExtension customExtension = customRepository.findById(customId).orElseThrow(
                 () -> new CustomCommonException(ErrorCode.CUSTOM_ID_FOUND)
         );
 
         customRepository.delete(customExtension);
-        return new CustomResponseDto.CustomRegisterResponseDto(customExtension);
+        return new CustomRegisterResponseDto(customExtension);
     }
 }

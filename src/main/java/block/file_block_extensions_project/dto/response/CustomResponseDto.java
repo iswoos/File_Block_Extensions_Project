@@ -13,7 +13,6 @@ public class CustomResponseDto {
     public static class CustomRegisterResponseDto {
 
         private String customExtensionName;
-
         private String isDeleted;
 
         public CustomRegisterResponseDto(CustomExtension customExtension) {

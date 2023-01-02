@@ -1,7 +1,7 @@
 package block.file_block_extensions_project.domain;
 
 import block.file_block_extensions_project.domain.base.BaseEntity;
-import block.file_block_extensions_project.dto.request.CustomRequestDto;
+import block.file_block_extensions_project.dto.request.CustomRequestDto.CustomRegisterRequestDto;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +27,7 @@ public class CustomExtension extends BaseEntity {
     @Column(name = "custom_deleted")
     private String isDeleted = "N";
 
-    public CustomExtension(CustomRequestDto.CustomRegisterRequestDto customExtensionName) {
+    public CustomExtension(CustomRegisterRequestDto customExtensionName) {
         this.customExtensionName = customExtensionName.getCustomExtensionName();
     }
 }
