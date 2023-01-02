@@ -107,7 +107,9 @@
                 return;
             }
 
-            if (value.search(/[a-z]/ig)) {
+            const regex = /^[a-z]+$/;
+
+            if (!regex.test(value)) {
                 alert('영문자만 입력가능합니다.');
                 return;
             }
