@@ -103,11 +103,18 @@
                 url: "/extensions/register",
                 headers: {'Content-Type': 'application/json'},
                 data: JSON.stringify(value),
-                success: function () {
-                    location.reload()
+                success: function (response) {
+                    if (response.data.message != null) {
+                        alert(response.data.message);
+                    } else{
+                        location.reload();
+                    }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("에러 발생\n" + textStatus + " : " + errorThrown);
+                    let response = JSON.parse(jqXHR.responseText);
+                    alert(response.error.message);
+
+                    // alert("에러 발생\n" + textStatus + " : " + errorThrown);
                 }
             });
 

@@ -20,7 +20,7 @@ public class CustomController {
 
     // 커스텀 확장자 추가
     @PostMapping("/register")
-    public ResponseDto<CustomResponseDto.CustomRegisterResponseDto> customRegister(@RequestBody @Valid CustomRequestDto.CustomRegisterRequestDto customRegisterRequestDto) {
+    public ResponseDto<Object> customRegister(@RequestBody @Valid CustomRequestDto.CustomRegisterRequestDto customRegisterRequestDto) {
         return ResponseDto.success(customService.customRegister(customRegisterRequestDto));
     }
 

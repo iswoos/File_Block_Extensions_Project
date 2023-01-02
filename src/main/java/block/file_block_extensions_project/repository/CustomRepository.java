@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface CustomRepository extends JpaRepository<CustomExtension, Long> {
 
-//    Optional<CustomExtension> findByCustomExtensionName(String CustomExtensionName);
+    Optional<CustomExtension> findByCustomExtensionName(String CustomExtensionName);
 
 }

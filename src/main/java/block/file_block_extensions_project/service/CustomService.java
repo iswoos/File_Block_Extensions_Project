@@ -20,7 +20,12 @@ public class CustomService {
 
     private final CustomRepository customRepository;
 
-    public CustomResponseDto.CustomRegisterResponseDto customRegister(CustomRequestDto.CustomRegisterRequestDto customRegisterRequestDto) {
+    public Object customRegister(CustomRequestDto.CustomRegisterRequestDto customRegisterRequestDto) {
+
+        if (customRepository.findByCustomExtensionName(customRegisterRequestDto.getCustomExtensionName()).isPresent()) {
+            return new CustomCommonException(ErrorCode.EXIST_CUSTOM_NAME);
+        }
+
         CustomExtension customExtension = new CustomExtension(customRegisterRequestDto);
         customRepository.save(customExtension);
         return new CustomResponseDto.CustomRegisterResponseDto(customExtension);
