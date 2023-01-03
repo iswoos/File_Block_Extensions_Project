@@ -1,6 +1,6 @@
 package block.file_block_extensions_project.domain;
 
-import block.file_block_extensions_project.domain.base.BaseEntity;
+import block.file_block_extensions_project.domain.timebase.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Slf4j
-public class FixedExtension extends BaseEntity {
+public class FixedExtension extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

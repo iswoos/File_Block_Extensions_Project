@@ -1,6 +1,6 @@
 package block.file_block_extensions_project.domain;
 
-import block.file_block_extensions_project.domain.base.BaseEntity;
+import block.file_block_extensions_project.domain.timebase.BaseTimeEntity;
 import block.file_block_extensions_project.dto.request.CustomRequestDto.CustomRegisterRequestDto;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class CustomExtension extends BaseEntity {
+public class CustomExtension extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
