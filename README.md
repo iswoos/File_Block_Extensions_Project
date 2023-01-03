@@ -48,12 +48,11 @@
 > 코드 설계하며 점점 추가할 예정
 
 ## API 설계서
-![image](https://user-images.githubusercontent.com/102216495/210056677-02afcf94-788c-4642-80a8-87d57580633e.png)
-
+![img_3.png](img_3.png)
 <br>
 
 ## DB 모델링
-![File Block Extensions (8)](https://user-images.githubusercontent.com/102216495/210056229-a938462c-06ef-426c-9cce-6543076f98bd.png)
+![img_4.png](img_4.png)
 
 <br>
 
