@@ -17,28 +17,27 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Transactional
 public class CustomService {
-
     private final CustomRepository customRepository;
-
     private final FixedRepository fixedRepository;
 
     public Object customRegister(CustomRegisterRequestDto customRegisterRequestDto) {
-
         if (customRepository.findByCustomExtensionName(customRegisterRequestDto.getCustomExtensionName()).isPresent()) {
-            return new CustomCommonException(ErrorCode.EXIST_CUSTOM_NAME);
+            throw new CustomCommonException(ErrorCode.EXIST_CUSTOM_NAME);
         }
 
-        if (fixedRepository.findByFixedExtensionName(customRegisterRequestDto.getCustomExtensionName()).isPresent()) {
-            return new CustomCommonException(ErrorCode.EXIST_FIXED_NAME);
+        else if (fixedRepository.findByFixedExtensionName(customRegisterRequestDto.getCustomExtensionName()).isPresent()) {
+            throw new CustomCommonException(ErrorCode.EXIST_FIXED_NAME);
         }
 
-        if (customRepository.count() > 200) {
-            return new CustomCommonException(ErrorCode.OVER_CUSTOM_COUNT);
+        else if (customRepository.count() >= 200) {
+            throw new CustomCommonException(ErrorCode.OVER_CUSTOM_COUNT);
         }
 
-        CustomExtension customExtension = new CustomExtension(customRegisterRequestDto);
-        customRepository.save(customExtension);
-        return new CustomRegisterResponseDto(customExtension);
+        else{
+            CustomExtension customExtension = new CustomExtension(customRegisterRequestDto);
+            customRepository.save(customExtension);
+            return new CustomRegisterResponseDto(customExtension);
+        }
     }
 
     public CustomRegisterResponseDto customDeleted(Long customId) {

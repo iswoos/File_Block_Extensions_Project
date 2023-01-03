@@ -23,11 +23,11 @@ public class CustomExtension extends BaseEntity {
     @Column(name = "custom_name")
     private String customExtensionName;
 
-    @NotNull
-    @Column(name = "custom_deleted")
-    private String isDeleted = "N";
-
     public CustomExtension(CustomRegisterRequestDto customExtensionName) {
         this.customExtensionName = customExtensionName.getCustomExtensionName();
+    }
+
+    public CustomExtension(String customExtensionName) {
+        this.customExtensionName = customExtensionName;
     }
 }
