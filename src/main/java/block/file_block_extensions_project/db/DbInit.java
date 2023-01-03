@@ -16,20 +16,15 @@ public class DbInit {
 
     @PostConstruct
     private void postConstruct() {
-        FixedExtension bat = new FixedExtension("bat");
-        FixedExtension cmd = new FixedExtension("cmd");
-        FixedExtension com = new FixedExtension("com");
-        FixedExtension cpl = new FixedExtension("cpl");
-        FixedExtension exe = new FixedExtension("exe");
-        FixedExtension scr = new FixedExtension("scr");
-        FixedExtension js = new FixedExtension("js");
-        fixedRepository.save(bat);
-        fixedRepository.save(cmd);
-        fixedRepository.save(com);
-        fixedRepository.save(cpl);
-        fixedRepository.save(exe);
-        fixedRepository.save(scr);
-        fixedRepository.save(js);
+
+        fixedRepository.save(new FixedExtension("bat"));
+        fixedRepository.save(new FixedExtension("cmd"));
+        fixedRepository.save(new FixedExtension("com"));
+        fixedRepository.save(new FixedExtension("cpl"));
+        fixedRepository.save(new FixedExtension("exe"));
+        fixedRepository.save(new FixedExtension("scr"));
+        fixedRepository.save(new FixedExtension("js"));
+
     }
 
     @PreDestroy

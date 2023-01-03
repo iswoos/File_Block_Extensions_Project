@@ -11,5 +11,4 @@ public class FileBlockExtensionsProjectApplication {
     public static void main(String[] args) {
         SpringApplication.run(FileBlockExtensionsProjectApplication.class, args);
     }
-
 }
