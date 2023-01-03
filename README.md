@@ -46,9 +46,10 @@
 
 ### 4. 별도 처리사항
 > 1. 테스트 코드 구현진행
-> 2. 코드 리팩토링 진행
-> 3. 서버전용 yml (application.yml), 개발전용 yml (application-local.yml) 작성 후 활용
-> 2. Git Commit 메세지 컨벤션 전략 진행
+> 2. postConstruct / PreDestroy 활용, 고정 확장자 개수 코드단에서 변경 용이하게끔 설정
+> 3. 코드 리팩토링 진행
+> 4. 서버전용 yml (application.yml), 개발전용 yml (application-local.yml) 작성 후 활용
+> 5. Git Commit 메세지 컨벤션 전략 진행
 
 ## API 설계서
 ![img_3.png](img_3.png)
