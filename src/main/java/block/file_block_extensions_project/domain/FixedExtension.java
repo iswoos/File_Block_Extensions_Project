@@ -25,18 +25,20 @@ public class FixedExtension extends BaseTimeEntity {
     private String fixedExtensionName;
     @NotNull
     @Column(name = "fixed_checked")
-    private String isChecked = "N";
+    @Enumerated(EnumType.STRING)
+    private FixedExtensionCheckedType fixedExtensionType = FixedExtensionCheckedType.N;
+//    private String isChecked = "N";
 
 
     public FixedExtension(String fixedExtensionName) {
-        this.fixedExtensionName = fixedExtensionName;;
+        this.fixedExtensionName = fixedExtensionName;
     }
 
     public void changeChekced() {
-        if (this.isChecked.equals("N")) {
-            this.isChecked = "Y";
+        if (this.fixedExtensionType == FixedExtensionCheckedType.N) {
+            this.fixedExtensionType = FixedExtensionCheckedType.Y;
         } else {
-            this.isChecked = "N";
+            this.fixedExtensionType = FixedExtensionCheckedType.N;
         }
     }
 }

@@ -25,7 +25,7 @@ public class FixedService {
         );
 
         log.info(fixedExtension.getFixedExtensionName());
-        log.info(fixedExtension.getIsChecked().getClass().getName());
+        log.info(fixedExtension.getFixedExtensionType().getClass().getName());
 
         fixedExtension.changeChekced();
 

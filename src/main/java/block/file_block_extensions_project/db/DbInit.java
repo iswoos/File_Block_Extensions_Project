@@ -24,7 +24,6 @@ public class DbInit {
         fixedRepository.save(new FixedExtension("exe"));
         fixedRepository.save(new FixedExtension("scr"));
         fixedRepository.save(new FixedExtension("js"));
-
     }
 
     @PreDestroy
