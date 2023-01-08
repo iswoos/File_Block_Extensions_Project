@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-@Transactional
+@Transactional(readOnly = true)
 public class FixedService {
 
     private final FixedRepository fixedRepository;

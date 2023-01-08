@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-@Transactional
+@Transactional(readOnly = true)
 public class MainService {
 
     private final FixedRepository fixedRepository;

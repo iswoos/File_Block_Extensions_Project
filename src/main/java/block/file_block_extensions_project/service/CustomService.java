@@ -15,11 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-@Transactional
+@Transactional(readOnly = true)
 public class CustomService {
     private final CustomRepository customRepository;
     private final FixedRepository fixedRepository;
 
+    @Transactional
     public Object customRegister(CustomRegisterRequestDto customRegisterRequestDto) {
         if (customRepository.findByCustomExtensionName(customRegisterRequestDto.getCustomExtensionName()).isPresent()) {
             throw new CustomCommonException(ErrorCode.EXIST_CUSTOM_NAME);
@@ -40,6 +41,7 @@ public class CustomService {
         }
     }
 
+    @Transactional
     public CustomRegisterResponseDto customDeleted(Long customId) {
         CustomExtension customExtension = customRepository.findById(customId).orElseThrow(
                 () -> new CustomCommonException(ErrorCode.CUSTOM_ID_FOUND)
