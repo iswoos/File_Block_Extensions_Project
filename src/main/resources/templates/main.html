@@ -42,10 +42,8 @@
                         let fixedExtensionId = extension.id;
                         let fixedExtendsionIsChecked = extension.fixedExtensionType;
 
-                        console.log(extension);
                         console.log(fixedExtendsionIsChecked);
                         console.log(fixedExtensionName);
-
 
                         let tmpExtension = `
                                             <input type="checkbox" ${fixedExtendsionIsChecked === 'Y' ? 'checked' : ''} name="fileOpt" id=${fixedExtensionId}> ${fixedExtensionName}
@@ -95,7 +93,7 @@
             return e.keyCode != 13;
         });
 
-        // 커스텀 확장자 추가 및 예외적용
+        // 커스텀 예외적용
         function onClickAddCustomExtension () {
             const value =  $('#custom').val()
             if(value === ''){
@@ -107,13 +105,14 @@
                 return;
             }
 
-            const regex = /^[a-z]+$/;
 
+            const regex = /^[a-z]+$/;
             if (!regex.test(value)) {
                 alert('영문 소문자만 입력가능합니다.');
                 return;
             }
 
+            // 커스텀 확장자 추가
             $.ajax({
                 type: "POST",
                 url: "/extensions/register",
@@ -133,16 +132,28 @@
                     // alert("에러 발생\n" + textStatus + " : " + errorThrown);
                 }
             });
-
-
         }
 
+        /*
+        event 객체
+        사용자가 직접 만들지 않아도 기본적으로 제공
+        속성과 메소드가 존재
+        ex) 마우스 클릭시 클릭한 좌표값, 이벤트를 발생시킨 객체가 어떤 것인지
+
+        1) 기본형식
+        익명함수의 매개변수(event)가 '이벤트 객체'를 의미
+        매개변수 이므로 꼭 변수명을 'event'로 사용할 필요는 없지만 보통 이벤트 객체의 의미로 'event'나 'e'로 많이 사용
+
+        target = 이벤트를 발생시킨 객체를 반환
+        */
+
+        // 고정 확장자 체크
         function onClickCheckbox (event) {
             if (event.target.name !== 'fileOpt') {
                 return
             }
 
-            //체크박스 체크여부 확인 후, 체크했을때 Y값(고정확장자 사용) update 아닐 땐N값(사용안함)) update
+            //체크박스 체크여부 확인 후, 체크했을때 Y로, Y 아닐 시 N으로 업데이트
             $.ajax({
                 type: "PATCH",
                 url: `/extensions/check/${event.target.id}`,
@@ -152,7 +163,6 @@
                     alert("에러 발생\n" + textStatus + " : " + errorThrown);
                 }
             });
-
         }
 
         // 커스텀 확장자 삭제
