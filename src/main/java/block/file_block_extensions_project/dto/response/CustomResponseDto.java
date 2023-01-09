@@ -18,4 +18,16 @@ public class CustomResponseDto {
             this.customExtensionName = customExtension.getCustomExtensionName();
         }
     }
+
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class CustomDeleteResponseDto {
+
+        private String customExtensionName;
+
+        public CustomDeleteResponseDto(CustomExtension customExtension) {
+            this.customExtensionName = customExtension.getCustomExtensionName();
+        }
+    }
 }

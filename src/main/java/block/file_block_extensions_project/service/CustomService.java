@@ -2,6 +2,7 @@ package block.file_block_extensions_project.service;
 
 import block.file_block_extensions_project.domain.CustomExtension;
 import block.file_block_extensions_project.dto.request.CustomRequestDto.CustomRegisterRequestDto;
+import block.file_block_extensions_project.dto.response.CustomResponseDto;
 import block.file_block_extensions_project.dto.response.CustomResponseDto.CustomRegisterResponseDto;
 import block.file_block_extensions_project.exception.CustomCommonException;
 import block.file_block_extensions_project.exception.ErrorCode;
@@ -12,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import static block.file_block_extensions_project.dto.response.CustomResponseDto.*;
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -21,7 +24,7 @@ public class CustomService {
     private final FixedRepository fixedRepository;
 
     @Transactional
-    public Object customRegister(CustomRegisterRequestDto customRegisterRequestDto) {
+    public CustomRegisterResponseDto customRegister(CustomRegisterRequestDto customRegisterRequestDto) {
         if (customRepository.findByCustomExtensionName(customRegisterRequestDto.getCustomExtensionName()).isPresent()) {
             throw new CustomCommonException(ErrorCode.EXIST_CUSTOM_NAME);
         }
@@ -42,12 +45,12 @@ public class CustomService {
     }
 
     @Transactional
-    public CustomRegisterResponseDto customDeleted(Long customId) {
+    public CustomDeleteResponseDto customDeleted(Long customId) {
         CustomExtension customExtension = customRepository.findById(customId).orElseThrow(
                 () -> new CustomCommonException(ErrorCode.CUSTOM_ID_FOUND)
         );
 
         customRepository.delete(customExtension);
-        return new CustomRegisterResponseDto(customExtension);
+        return new CustomDeleteResponseDto(customExtension);
     }
 }

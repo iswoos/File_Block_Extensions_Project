@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import static block.file_block_extensions_project.dto.response.CustomResponseDto.*;
+
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -22,12 +24,12 @@ public class CustomController {
 
     // 커스텀 확장자 추가
     @PostMapping("/register")
-    public ResponseDto<Object> customRegister(@RequestBody @Valid CustomRegisterRequestDto customRegisterRequestDto) {
+    public ResponseDto<CustomRegisterResponseDto> customRegister(@RequestBody @Valid CustomRegisterRequestDto customRegisterRequestDto) {
         return ResponseDto.success(customService.customRegister(customRegisterRequestDto));
     }
 
     @DeleteMapping("/{customId}")
-    public ResponseDto<CustomRegisterResponseDto> customDeleted(@PathVariable Long customId) {
+    public ResponseDto<CustomDeleteResponseDto> customDeleted(@PathVariable Long customId) {
         return ResponseDto.success(customService.customDeleted(customId));
     }
 
